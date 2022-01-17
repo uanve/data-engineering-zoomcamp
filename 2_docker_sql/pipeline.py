@@ -6,4 +6,4 @@ print(sys.argv)
 
 day = sys.argv[1]
 
-print('Hello World day: {}'.format(day))
+print('Hello World! day: {}'.format(day))
