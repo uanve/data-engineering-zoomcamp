@@ -2,15 +2,15 @@
 [github of the course](https://github.com/DataTalksClub/data-engineering-zoomcamp)
 
 ### Week 1: Introduction & Prerequisites
-- GCP (done)
-- Docker (done)
-- Data and SQL (done)
-- Terraform
+- [x] GCP
+- [x] Docker
+- [x] Data and SQL (done)
+- [ ] Terraform
 
-Week 2: Data ingestion
+### Week 2: Data ingestion
 Goal: Orchestrating a job to ingest web data to a Data Lake in its raw form.
-- Data Lake (GCS)
-- Orchestration (Airflow)
+- [ ] Data Lake (GCS)
+- [ ] Orchestration (Airflow)
 
 ### Week 3: Data Warehouse
 Goal: Structuring data into a Data Warehouse
