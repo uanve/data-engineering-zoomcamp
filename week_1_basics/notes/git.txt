@@ -2,3 +2,12 @@ git remote remove origin
 git commit -m "changes"
 git remote add origin git@github.com:uanve/data-engineering-zoomcamp.git
 git push -u origin main
+
+
+git status
+git add notes.txt
+git commit -m "message"
+git push
+
+git add .
+git reset
