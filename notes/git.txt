@@ -1,4 +1,0 @@
-git remote remove origin
-git commit -m "changes"
-git remote add origin git@github.com:uanve/data-engineering-zoomcamp.git
-git push -u origin main
