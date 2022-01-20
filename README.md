@@ -1,11 +1,12 @@
 # DATA ENGINEERING ZOOMCAMP
 [github of the course](https://github.com/DataTalksClub/data-engineering-zoomcamp)
 
-### Week 1: Introduction & Prerequisites
+### [Week 1: Introduction & Prerequisites](https://github.com/uanve/data-engineering-zoomcamp/tree/main/week_1_basics)
 - [x] GCP
 - [x] Docker
 - [x] Data and SQL (done)
 - [x] Terraform
+- [x] Exercises - SQL queries 
 
 ### Week 2: Data ingestion
 Goal: Orchestrating a job to ingest web data to a Data Lake in its raw form.
