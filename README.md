@@ -5,7 +5,7 @@
 - [x] GCP
 - [x] Docker
 - [x] Data and SQL (done)
-- [ ] Terraform
+- [x] Terraform
 
 ### Week 2: Data ingestion
 Goal: Orchestrating a job to ingest web data to a Data Lake in its raw form.
