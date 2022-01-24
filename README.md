@@ -29,4 +29,4 @@ Goal:
 ### Week 7, 8 & 9: Project
 Putting everything we learned to practice
 
-![Visitor Count](https://profile-counter.glitch.me/{YOUR USER}/count.svg)
+![Visitor Count](https://profile-counter.glitch.me/{uanve}/count.svg)
