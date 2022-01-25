@@ -28,3 +28,4 @@ Goal:
 
 ### Week 7, 8 & 9: Project
 Putting everything we learned to practice
+
