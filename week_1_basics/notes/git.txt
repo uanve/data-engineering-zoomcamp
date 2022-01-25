@@ -10,4 +10,11 @@ git commit -m "message"
 git push
 
 git add .
-git reset
+
+
+ssh-keygen -t rsa -b 4096 -C “youremail@example.com”
+
+key created in /home/.../.ssh/...
+
+open and copy ssh path to github 
+starts with: ssh-rsa
