@@ -1,0 +1,28 @@
+[2022-01-29 13:51:55,969] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag_2.bigquery_external_table_task scheduled__2021-08-02T06:00:00+00:00 [queued]>
+[2022-01-29 13:51:56,108] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag_2.bigquery_external_table_task scheduled__2021-08-02T06:00:00+00:00 [queued]>
+[2022-01-29 13:51:56,108] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-29 13:51:56,108] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-29 13:51:56,108] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-29 13:51:56,208] {taskinstance.py:1259} INFO - Executing <Task(BigQueryUpsertTableOperator): bigquery_external_table_task> on 2021-08-02 06:00:00+00:00
+[2022-01-29 13:51:56,260] {standard_task_runner.py:52} INFO - Started process 2013 to run task
+[2022-01-29 13:51:56,346] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_gcs_dag_2', 'bigquery_external_table_task', 'scheduled__2021-08-02T06:00:00+00:00', '--job-id', '618', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_gcs_dag_2.py', '--cfg-path', '/tmp/tmpe00lwmki', '--error-file', '/tmp/tmpl6grnh91']
+[2022-01-29 13:51:56,391] {standard_task_runner.py:77} INFO - Job 618: Subtask bigquery_external_table_task
+[2022-01-29 13:51:56,988] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_gcs_dag_2.bigquery_external_table_task scheduled__2021-08-02T06:00:00+00:00 [running]> on host 9bf957887753
+[2022-01-29 13:51:57,368] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_gcs_dag_2
+AIRFLOW_CTX_TASK_ID=bigquery_external_table_task
+AIRFLOW_CTX_EXECUTION_DATE=2021-08-02T06:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-08-02T06:00:00+00:00
+[2022-01-29 13:51:57,369] {bigquery.py:2016} INFO - Upserting Dataset: trips_data_all with table_resource: {'tableReference': {'tableId': 'test_table_id'}}
+[2022-01-29 13:51:57,372] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/providers/google/cloud/operators/bigquery.py:2021: DeprecationWarning: The bigquery_conn_id parameter has been deprecated. You should pass the gcp_conn_id parameter.
+  impersonation_chain=self.impersonation_chain,
+
+[2022-01-29 13:51:57,373] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2022-01-29 13:51:57,422] {bigquery.py:496} INFO - Start getting tables list from dataset: datacamp-338713.trips_data_all
+[2022-01-29 13:51:57,837] {bigquery.py:1228} INFO - Table datacamp-338713:trips_data_all.test_table_id does not exist. creating.
+[2022-01-29 13:51:58,542] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_gcs_dag_2, task_id=bigquery_external_table_task, execution_date=20210802T060000, start_date=20220129T135155, end_date=20220129T135158
+[2022-01-29 13:51:58,757] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-29 13:51:58,909] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

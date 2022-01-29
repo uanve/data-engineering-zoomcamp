@@ -1,0 +1,22 @@
+[2022-01-29 12:33:31,670] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.bigquery_external_table_task manual__2022-01-29T12:33:16.885330+00:00 [queued]>
+[2022-01-29 12:33:31,681] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.bigquery_external_table_task manual__2022-01-29T12:33:16.885330+00:00 [queued]>
+[2022-01-29 12:33:31,682] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-29 12:33:31,682] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2022-01-29 12:33:31,682] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-29 12:33:31,695] {taskinstance.py:1259} INFO - Executing <Task(BigQueryCreateExternalTableOperator): bigquery_external_table_task> on 2022-01-29 12:33:16.885330+00:00
+[2022-01-29 12:33:31,701] {standard_task_runner.py:52} INFO - Started process 4065 to run task
+[2022-01-29 12:33:31,706] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_gcs_dag', 'bigquery_external_table_task', 'manual__2022-01-29T12:33:16.885330+00:00', '--job-id', '339', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_gcs_dag.py', '--cfg-path', '/tmp/tmpugdfcyek', '--error-file', '/tmp/tmpisvmp2iv']
+[2022-01-29 12:33:31,707] {standard_task_runner.py:77} INFO - Job 339: Subtask bigquery_external_table_task
+[2022-01-29 12:33:31,778] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_gcs_dag.bigquery_external_table_task manual__2022-01-29T12:33:16.885330+00:00 [running]> on host 85e1117cfb12
+[2022-01-29 12:33:31,857] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_gcs_dag
+AIRFLOW_CTX_TASK_ID=bigquery_external_table_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-29T12:33:16.885330+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-01-29T12:33:16.885330+00:00
+[2022-01-29 12:33:31,860] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2022-01-29 12:33:32,293] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_gcs_dag, task_id=bigquery_external_table_task, execution_date=20220129T123316, start_date=20220129T123331, end_date=20220129T123332
+[2022-01-29 12:33:32,320] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-29 12:33:32,359] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

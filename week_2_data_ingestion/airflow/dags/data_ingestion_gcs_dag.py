@@ -1,6 +1,8 @@
 import os
 import logging
 
+from datetime import datetime
+
 from airflow import DAG
 from airflow.utils.dates import days_ago
 from airflow.operators.bash import BashOperator
@@ -8,13 +10,14 @@ from airflow.operators.python import PythonOperator
 
 from google.cloud import storage
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExternalTableOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryUpsertTableOperator
 import pyarrow.csv as pv
 import pyarrow.parquet as pq
 
 PROJECT_ID = os.environ.get("GCP_PROJECT_ID")
 BUCKET = os.environ.get("GCP_GCS_BUCKET")
 
-dataset_file = "yellow_tripdata_2021-01.csv"
+dataset_file = "yellow_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv"
 dataset_url = f"https://s3.amazonaws.com/nyc-tlc/trip+data/{dataset_file}"
 path_to_local_home = os.environ.get("AIRFLOW_HOME", "/opt/airflow/")
 parquet_file = dataset_file.replace('.csv', '.parquet')
@@ -67,6 +70,8 @@ with DAG(
     catchup=False,
     max_active_runs=1,
     tags=['dtc-de'],
+
+
 ) as dag:
 
     download_dataset_task = BashOperator(
