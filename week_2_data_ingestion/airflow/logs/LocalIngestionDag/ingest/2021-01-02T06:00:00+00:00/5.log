@@ -1,0 +1,146 @@
+[2022-01-29 10:49:03,455] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: LocalIngestionDag.ingest scheduled__2021-01-02T06:00:00+00:00 [queued]>
+[2022-01-29 10:49:03,468] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: LocalIngestionDag.ingest scheduled__2021-01-02T06:00:00+00:00 [queued]>
+[2022-01-29 10:49:03,468] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-29 10:49:03,468] {taskinstance.py:1239} INFO - Starting attempt 5 of 5
+[2022-01-29 10:49:03,468] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-29 10:49:03,481] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): ingest> on 2021-01-02 06:00:00+00:00
+[2022-01-29 10:49:03,487] {standard_task_runner.py:52} INFO - Started process 1028 to run task
+[2022-01-29 10:49:03,492] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'LocalIngestionDag', 'ingest', 'scheduled__2021-01-02T06:00:00+00:00', '--job-id', '93', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_local.py', '--cfg-path', '/tmp/tmpftcc65nq', '--error-file', '/tmp/tmpvfj0dil8']
+[2022-01-29 10:49:03,493] {standard_task_runner.py:77} INFO - Job 93: Subtask ingest
+[2022-01-29 10:49:03,560] {logging_mixin.py:109} INFO - Running <TaskInstance: LocalIngestionDag.ingest scheduled__2021-01-02T06:00:00+00:00 [running]> on host 89af7c3452a0
+[2022-01-29 10:49:03,602] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2022-01-29 10:49:03,624] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=LocalIngestionDag
+AIRFLOW_CTX_TASK_ID=ingest
+AIRFLOW_CTX_EXECUTION_DATE=2021-01-02T06:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-01-02T06:00:00+00:00
+[2022-01-29 10:49:03,624] {logging_mixin.py:109} INFO - yellow_taxi_2021_01 /opt/***/output_2021-01.csv
+[2022-01-29 10:49:03,633] {logging_mixin.py:109} INFO - connection established seccessfully, inserting data...
+[2022-01-29 10:49:31,597] {logging_mixin.py:109} INFO - inserted first chunk, took 27.964 second
+[2022-01-29 10:49:59,772] {logging_mixin.py:109} INFO - inserted another chunk, took 28.175 second
+[2022-01-29 10:50:27,363] {logging_mixin.py:109} INFO - inserted another chunk, took 27.590 second
+[2022-01-29 10:50:54,163] {logging_mixin.py:109} INFO - inserted another chunk, took 26.800 second
+[2022-01-29 10:51:20,749] {logging_mixin.py:109} INFO - inserted another chunk, took 26.586 second
+[2022-01-29 10:51:46,969] {logging_mixin.py:109} INFO - inserted another chunk, took 26.220 second
+[2022-01-29 10:52:13,418] {logging_mixin.py:109} INFO - inserted another chunk, took 26.449 second
+[2022-01-29 10:52:39,746] {logging_mixin.py:109} INFO - inserted another chunk, took 26.327 second
+[2022-01-29 10:53:07,055] {logging_mixin.py:109} INFO - inserted another chunk, took 27.309 second
+[2022-01-29 10:53:22,056] {local_task_job.py:212} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2022-01-29 10:53:22,058] {process_utils.py:124} INFO - Sending Signals.SIGTERM to group 1028. PIDs of all processes in the group: [1028]
+[2022-01-29 10:53:22,059] {process_utils.py:75} INFO - Sending the signal Signals.SIGTERM to group 1028
+[2022-01-29 10:53:22,059] {taskinstance.py:1408} ERROR - Received SIGTERM. Terminating subprocesses.
+[2022-01-29 10:53:22,085] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/ingest_script.py", line 39, in ingest_callable
+    df.to_sql(name=table_name, con=engine, if_exists='append')
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1770, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1340, in insert_records
+    table.insert(chunksize=chunksize, method=method)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 967, in insert
+    exec_insert(conn, keys, chunk_iter)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 882, in _execute_insert
+    conn.execute(self.table.insert(), data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1130, in _execute_clauseelement
+    distilled_params,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1317, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1514, in _handle_dbapi_exception
+    util.raise_(exc_info[1], with_traceback=exc_info[2])
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1257, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 912, in do_executemany
+    cursor.executemany(statement, parameters)
+  File "/usr/local/lib/python3.7/encodings/utf_8.py", line 15, in decode
+    def decode(input, errors='strict'):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1410, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2022-01-29 10:53:22,097] {taskinstance.py:1277} INFO - Marking task as UP_FOR_RETRY. dag_id=LocalIngestionDag, task_id=ingest, execution_date=20210102T060000, start_date=20220129T104903, end_date=20220129T105322
+[2022-01-29 10:53:22,116] {standard_task_runner.py:92} ERROR - Failed to execute job 93 for task ingest
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/ingest_script.py", line 39, in ingest_callable
+    df.to_sql(name=table_name, con=engine, if_exists='append')
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1770, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1340, in insert_records
+    table.insert(chunksize=chunksize, method=method)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 967, in insert
+    exec_insert(conn, keys, chunk_iter)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 882, in _execute_insert
+    conn.execute(self.table.insert(), data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1130, in _execute_clauseelement
+    distilled_params,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1317, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1514, in _handle_dbapi_exception
+    util.raise_(exc_info[1], with_traceback=exc_info[2])
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1257, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 912, in do_executemany
+    cursor.executemany(statement, parameters)
+  File "/usr/local/lib/python3.7/encodings/utf_8.py", line 15, in decode
+    def decode(input, errors='strict'):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1410, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2022-01-29 10:53:22,154] {process_utils.py:70} INFO - Process psutil.Process(pid=1028, status='terminated', exitcode=1, started='10:49:03') (1028) terminated with exit code 1
