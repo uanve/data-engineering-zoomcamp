@@ -17,8 +17,8 @@ import pyarrow.parquet as pq
 PROJECT_ID = os.environ.get("GCP_PROJECT_ID")
 BUCKET = os.environ.get("GCP_GCS_BUCKET")
 
-dataset_file = "yellow_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv"
-dataset_url = f"https://s3.amazonaws.com/nyc-tlc/trip+data/{dataset_file}"
+dataset_file = "fhv_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv"
+dataset_url = f"https://nyc-tlc.s3.amazonaws.com/trip+data/{dataset_file}"
 path_to_local_home = os.environ.get("AIRFLOW_HOME", "/opt/airflow/")
 parquet_file = dataset_file.replace('.csv', '.parquet')
 BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", 'trips_data_all')
@@ -57,19 +57,22 @@ def upload_to_gcs(bucket, object_name, local_file):
 
 default_args = {
     "owner": "airflow",
-    "start_date": days_ago(1),
     "depends_on_past": False,
-    "retries": 1,
+    # "retries": 1,
 }
 
 # NOTE: DAG declaration - using a Context Manager (an implicit way)
 with DAG(
-    dag_id="data_ingestion_gcs_dag",
-    schedule_interval="@daily",
+    dag_id="data_ingestion_gcs_dag_2",
+    # schedule_interval="@monthly",
+    schedule_interval = '0 6 2 * *',
     default_args=default_args,
-    catchup=False,
-    max_active_runs=1,
+    catchup=True,
+    # max_active_runs=1,
     tags=['dtc-de'],
+    start_date = datetime(2021,1,1)
+    # end_date  = datetime(2022,1,1)
+
 
 
 ) as dag:
@@ -98,8 +101,9 @@ with DAG(
         },
     )
 
-    bigquery_external_table_task = BigQueryCreateExternalTableOperator(
+    bigquery_external_table_task = BigQueryUpsertTableOperator(
         task_id="bigquery_external_table_task",
+        dataset_id=BIGQUERY_DATASET,
         table_resource={
             "tableReference": {
                 "projectId": PROJECT_ID,
@@ -110,7 +114,22 @@ with DAG(
                 "sourceFormat": "PARQUET",
                 "sourceUris": [f"gs://{BUCKET}/raw/{parquet_file}"],
             },
-        },
+        }
+
+
+
+        # task_id="bigquery_external_table_task",
+        # table_resource={
+        #     "tableReference": {
+        #         "projectId": PROJECT_ID,
+        #         "datasetId": BIGQUERY_DATASET,
+        #         "tableId": "external_table",
+        #     },
+        #     "externalDataConfiguration": {
+        #         "sourceFormat": "PARQUET",
+        #         "sourceUris": [f"gs://{BUCKET}/raw/{parquet_file}"],
+        #     },
+        # },
     )
 
     download_dataset_task >> format_to_parquet_task >> local_to_gcs_task >> bigquery_external_table_task
