@@ -68,9 +68,9 @@ with DAG(
     schedule_interval = '0 6 2 * *',
     default_args=default_args,
     catchup=True,
-    # max_active_runs=1,
+    max_active_runs=24,
     tags=['dtc-de'],
-    start_date = datetime(2021,1,1)
+    start_date = datetime(2019,1,1)
     # end_date  = datetime(2022,1,1)
 
 

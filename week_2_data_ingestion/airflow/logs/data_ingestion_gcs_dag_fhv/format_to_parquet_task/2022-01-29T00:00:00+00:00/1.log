@@ -1,0 +1,24 @@
+[2022-01-30 01:27:02,619] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag_fhv.format_to_parquet_task scheduled__2022-01-29T00:00:00+00:00 [queued]>
+[2022-01-30 01:27:02,630] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag_fhv.format_to_parquet_task scheduled__2022-01-29T00:00:00+00:00 [queued]>
+[2022-01-30 01:27:02,630] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-30 01:27:02,630] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2022-01-30 01:27:02,630] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-30 01:27:02,786] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): format_to_parquet_task> on 2022-01-29 00:00:00+00:00
+[2022-01-30 01:27:02,797] {standard_task_runner.py:52} INFO - Started process 329 to run task
+[2022-01-30 01:27:02,806] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_gcs_dag_fhv', 'format_to_parquet_task', 'scheduled__2022-01-29T00:00:00+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_gcs_dag_fhv.py', '--cfg-path', '/tmp/tmpixdbannf', '--error-file', '/tmp/tmpphhtlj2b']
+[2022-01-30 01:27:02,808] {standard_task_runner.py:77} INFO - Job 28: Subtask format_to_parquet_task
+[2022-01-30 01:27:03,194] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_gcs_dag_fhv.format_to_parquet_task scheduled__2022-01-29T00:00:00+00:00 [running]> on host 04ca2676bdcc
+[2022-01-30 01:27:08,908] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_gcs_dag_fhv
+AIRFLOW_CTX_TASK_ID=format_to_parquet_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-29T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-01-29T00:00:00+00:00
+[2022-01-30 01:27:20,667] {python.py:175} INFO - Done. Returned value was: None
+[2022-01-30 01:27:20,680] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_gcs_dag_fhv, task_id=format_to_parquet_task, execution_date=20220129T000000, start_date=20220130T012702, end_date=20220130T012720
+[2022-01-30 01:27:23,542] {local_task_job.py:212} WARNING - State of this instance has been externally set to success. Terminating instance.
+[2022-01-30 01:27:23,613] {process_utils.py:124} INFO - Sending Signals.SIGTERM to group 329. PIDs of all processes in the group: [329]
+[2022-01-30 01:27:23,613] {process_utils.py:75} INFO - Sending the signal Signals.SIGTERM to group 329
+[2022-01-30 01:27:23,714] {process_utils.py:70} INFO - Process psutil.Process(pid=329, status='terminated', exitcode=0, started='01:27:02') (329) terminated with exit code 0
