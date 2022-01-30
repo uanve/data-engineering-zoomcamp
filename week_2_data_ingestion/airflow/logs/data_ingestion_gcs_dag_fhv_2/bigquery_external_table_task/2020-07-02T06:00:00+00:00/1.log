@@ -1,0 +1,33 @@
+[2022-01-30 01:34:59,913] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag_fhv_2.bigquery_external_table_task scheduled__2020-07-02T06:00:00+00:00 [queued]>
+[2022-01-30 01:34:59,949] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag_fhv_2.bigquery_external_table_task scheduled__2020-07-02T06:00:00+00:00 [queued]>
+[2022-01-30 01:34:59,949] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-30 01:34:59,949] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-30 01:34:59,949] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-30 01:35:01,653] {taskinstance.py:1259} INFO - Executing <Task(BigQueryUpsertTableOperator): bigquery_external_table_task> on 2020-07-02 06:00:00+00:00
+[2022-01-30 01:35:01,675] {standard_task_runner.py:52} INFO - Started process 1225 to run task
+[2022-01-30 01:35:01,740] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_gcs_dag_fhv_2', 'bigquery_external_table_task', 'scheduled__2020-07-02T06:00:00+00:00', '--job-id', '138', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_gcs_dag_2_fhv.py', '--cfg-path', '/tmp/tmpltswhif9', '--error-file', '/tmp/tmpi2bodo_w']
+[2022-01-30 01:35:01,753] {standard_task_runner.py:77} INFO - Job 138: Subtask bigquery_external_table_task
+[2022-01-30 01:35:06,693] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_gcs_dag_fhv_2.bigquery_external_table_task scheduled__2020-07-02T06:00:00+00:00 [running]> on host 04ca2676bdcc
+[2022-01-30 01:35:08,599] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2022-01-30 01:35:09,030] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_gcs_dag_fhv_2
+AIRFLOW_CTX_TASK_ID=bigquery_external_table_task
+AIRFLOW_CTX_EXECUTION_DATE=2020-07-02T06:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2020-07-02T06:00:00+00:00
+[2022-01-30 01:35:09,031] {bigquery.py:2016} INFO - Upserting Dataset: trips_data_all with table_resource: {'tableReference': {'projectId': 'datacamp-338713', 'datasetId': 'trips_data_all', 'tableId': 'external_table'}, 'externalDataConfiguration': {'sourceFormat': 'PARQUET', 'sourceUris': ['gs://dtc_data_lake_datacamp-338713/raw/fhv_tripdata_2020-07.parquet']}}
+[2022-01-30 01:35:09,122] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/providers/google/cloud/operators/bigquery.py:2021: DeprecationWarning: The bigquery_conn_id parameter has been deprecated. You should pass the gcp_conn_id parameter.
+  impersonation_chain=self.impersonation_chain,
+
+[2022-01-30 01:35:09,130] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2022-01-30 01:35:09,200] {bigquery.py:496} INFO - Start getting tables list from dataset: datacamp-338713.trips_data_all
+[2022-01-30 01:35:09,683] {bigquery.py:1225} INFO - Table datacamp-338713:trips_data_all.external_table exists, updating.
+[2022-01-30 01:35:09,684] {bigquery.py:749} INFO - Updating table: {'projectId': 'datacamp-338713', 'datasetId': 'trips_data_all', 'tableId': 'external_table'}
+[2022-01-30 01:35:10,210] {bigquery.py:751} INFO - Table datacamp-338713.None.None updated successfully
+[2022-01-30 01:35:10,267] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_gcs_dag_fhv_2, task_id=bigquery_external_table_task, execution_date=20200702T060000, start_date=20220130T013459, end_date=20220130T013510
+[2022-01-30 01:35:10,570] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-30 01:35:10,952] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

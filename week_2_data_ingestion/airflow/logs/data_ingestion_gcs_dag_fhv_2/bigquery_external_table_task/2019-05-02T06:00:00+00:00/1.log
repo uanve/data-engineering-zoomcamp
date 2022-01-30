@@ -27,3 +27,7 @@ AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-05-02T06:00:00+00:00
 [2022-01-30 01:33:31,789] {bigquery.py:496} INFO - Start getting tables list from dataset: datacamp-338713.trips_data_all
 [2022-01-30 01:33:31,953] {bigquery.py:1225} INFO - Table datacamp-338713:trips_data_all.external_table exists, updating.
 [2022-01-30 01:33:31,953] {bigquery.py:749} INFO - Updating table: {'projectId': 'datacamp-338713', 'datasetId': 'trips_data_all', 'tableId': 'external_table'}
+[2022-01-30 01:33:53,444] {bigquery.py:751} INFO - Table datacamp-338713.None.None updated successfully
+[2022-01-30 01:33:53,475] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_gcs_dag_fhv_2, task_id=bigquery_external_table_task, execution_date=20190502T060000, start_date=20220130T013312, end_date=20220130T013353
+[2022-01-30 01:33:53,601] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-30 01:33:53,689] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

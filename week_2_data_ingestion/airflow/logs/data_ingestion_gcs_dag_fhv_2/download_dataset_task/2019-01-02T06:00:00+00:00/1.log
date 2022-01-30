@@ -26,3 +26,4 @@ AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-01-02T06:00:00+00:00
 [2022-01-30 01:33:41,858] {subprocess.py:93} INFO - Command exited with return code 0
 [2022-01-30 01:33:44,908] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_gcs_dag_fhv_2, task_id=download_dataset_task, execution_date=20190102T060000, start_date=20220130T013135, end_date=20220130T013344
 [2022-01-30 01:33:46,783] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-30 01:33:47,431] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
