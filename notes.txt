@@ -1,0 +1,6 @@
+CREATE OR REPLACE EXTERNAL TABLE `datacamp-338713.nytaxi.external_yellow_tripdata`
+OPTIONS (
+    format = "parquet",
+    uris = ['gs://dtc_data_lake_datacamp-338713/raw/fhv_tripdata_2019-*.parquet',
+    'gs://dtc_data_lake_datacamp-338713/raw/fhv_tripdata_2020-*.parquet']
+)
