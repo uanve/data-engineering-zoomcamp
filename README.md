@@ -10,11 +10,18 @@
 
 ### Week 2: Data ingestion
 Goal: Orchestrating a job to ingest web data to a Data Lake in its raw form.
-- [ ] Data Lake (GCS)
-- [ ] Orchestration (Airflow)
+- [x] Data Lake (GCS)
+- [x] Ingesting data to GCP with Airflow (URL.csv > GCP bucket > BigQuery
+- [x] Ingesting data to local Postgres with Airflow
+- [x] Exercises - Prepare data for next week
 
 ### Week 3: Data Warehouse
 Goal: Structuring data into a Data Warehouse
+- [x] Partitoning and clustering, Automatic re-clustering 
+- [x] Misc: BQ Geo location, BQ ML
+- [x] Exercises 
+  - Run SQL queries in BigQuery 
+  - Optimize tables by partitioning & clustering
 
 
 ### Week 4: Analytics engineering
