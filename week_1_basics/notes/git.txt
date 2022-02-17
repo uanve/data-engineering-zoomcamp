@@ -26,3 +26,5 @@ git clone https://github.com/DataTalksClub/data-engineering-zoomcamp.git
 
 cd /home/datacamp/data-engineering-zoomcamp
 cp -r /home/datacamp/new_week/data-engineering-zoomcamp/week_2_data_ingestion .
+
+rm -r new_week
